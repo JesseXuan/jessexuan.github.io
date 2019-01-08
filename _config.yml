@@ -1,12 +1,12 @@
 # Site settings
-name: Less Or More
+name: 好记性不如烂笔头！！！
 email: 635983xjx@163.com
 author: JesseXuan
 url: https://jessexuan.github.io
 resume_site: http://www.hifreud.com/Resume.io/
 github: https://github.com/JesseXuan/
 baseurl: "/"
-description: Actually, less is more!
+description: 跬步千里!
 meta_description: JesseXuan;个人博客;知识积累
 motto: It's our wits that make us men.
 banner: 不断积累。
@@ -22,5 +22,5 @@ github_username: JesseXuan
 # Build settings
 markdown: kramdown
 
-baidu_analysis: 94be4b0f9fc5d94cc0d0415ea6761ae9
+#baidu_analysis: 94be4b0f9fc5d94cc0d0415ea6761ae9
 
