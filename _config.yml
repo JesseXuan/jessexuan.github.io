@@ -1,14 +1,14 @@
 # Site settings
-name: 日积月累！！！
+name: 顶呱呱自留地！！！
 email: 635983xjx@163.com
 author: JesseXuan
 url: https://jessexuan.github.io
 resume_site: http://jessexuan.github.io/
 github: https://github.com/JesseXuan/
 baseurl: "/"
-description: 跬步千里!
+description: 跬步千里。
 meta_description: JesseXuan;个人博客;知识积累
-motto: 温故而知新。
+motto: 温故而知新！
 banner: 在磕磕碰碰中不断积累，不断成长。
 
 #permalink: /:categories/:year/:month/:day/:title/
