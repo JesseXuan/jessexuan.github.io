@@ -14,5 +14,5 @@ permalink: /books/
 + 《鸟哥的Linux私房菜基础学习篇-第三版》
 + 《HTTP协议详解》
 + 《TCP/IP协议详解-卷一》
-+ 《软件测试的艺术》
 + 《CCNA/CCNP教程》
++ 《软件测试的艺术》
