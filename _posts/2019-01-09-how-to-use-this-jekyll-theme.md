@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  如何使用LessOrMore这个Jekyll模版
-date:   2016-08-27 01:08:00 +0800
+date:   2019-01-09 01:08:00 +0800
 categories: document
 tag: 教程
 ---
@@ -105,4 +105,4 @@ jekyll server
 关于作者						{#about-author}
 ====================================
 
-热爱开源，热爱折腾的Java程序猿。更多个人信息和联系方式可以参照[我的简介](http://www.hifreud.com/Resume.io/)。
+热爱开源，热爱折腾的Java程序猿。更多个人信息和联系方式可以参照[我的简介](http://jessexuan.github.io/)。
