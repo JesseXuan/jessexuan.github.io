@@ -6374,7 +6374,7 @@ hr {
 }
 @media (min-width: 768px) {
   .footer {
-    text-align: left;
+    text-align: center;
   }
   .footer p {
     margin-bottom: 0;
