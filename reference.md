@@ -10,6 +10,7 @@ permalink: /reference/
 
 5G NR
 =====================
+[sharetechnote](http://www.sharetechnote.com/)
 
 4G LTE
 =====================
