@@ -8,6 +8,9 @@ permalink: /reference/
 {:toc}
 
 
+5G NR
+=====================
+
 4G LTE
 =====================
 [阿米尔C 的技术博客](https://blog.csdn.net/m_052148)
