@@ -49,6 +49,8 @@ GRE L3                                                    {#Grel3}
 
 网络拓扑(R1:路由终端，R2:CentOS服务器)
 
+没有支持GRE VPN的路由终端，可以用CentOS加载gre模块，雷同服务器端设置。
+
 ![grel3]({{ '/styles/images/log_file/vpn/gre_l3.png' | prepend: site.baseurl  }})
 
 ```bash
@@ -112,16 +114,30 @@ GRE L2                                                    {#Grel2}
 ![grel2]({{ '/styles/images/log_file/vpn/gre_l2.png' | prepend: site.baseurl  }})
 
 ```bash
-#GRE L2桥接创建方式
+#GRE L2桥接创建方式(eth0为R2的LAN口)
 # ip link add gretap1 type gretap remote 10.56.88.66 local 192.168.22.196 ttl 255 nopmtudisc
 # ip link set dev gretap1 up
 # brctl addbr br0
 # brctl addif br0 gretap1
 # brctl addif br0 eth0
+
+#删除layer2
+# brctl delif br0 gretap1
+# brtcl delif br0 eth0
+# ip link set br0 down
+# brctl delbr br0
+# ip link set  gretap1 down
+# ip link del dev gretap1
 ```
 路由终端上GRE Layer2配置
 
 ![grel2conf]({{ '/styles/images/log_file/vpn/gre_l2_conf.png' | prepend: site.baseurl  }})
+
+两边配置完毕后，可将路由终端R1 LAN口的DHCP server服务关闭，让PC1从远端获取到地址。
+
+PC1可以动态获取到PC2相同网段IP，可以正常互相通信。
+
+![grel2payload]({{ '/styles/images/log_file/vpn/gre_l2_payload.png' | prepend: site.baseurl  }})
 
 GRE Tunnel MTU问题                                                    {#MTU}
 ------------------------------------
