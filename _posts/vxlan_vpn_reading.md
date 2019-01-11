@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Vxlan VPN解读记录"
+title:  "Vxlan VPN测试配置记录"
 date:   2019-01-11 10:31:01 +0800
 categories: 数通
 tag: VPN
