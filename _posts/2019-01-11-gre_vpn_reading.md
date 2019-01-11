@@ -58,9 +58,6 @@ GRE L3                                                    {#Grel3}
 # ip addr add 172.16.168.1/30 dev tunnel0
 # ip addr add 172.16.168.1/30 peer 172.16.168.2/30 dev tunnel0
 
-#在VPN服务器或者VPN终端上添加需要访问远端的流量路由进隧道内传输
-# ip route add 192.168.150.0/24 dev tunnel0
-
 #删除tunnel
 # ip link set tunnel0 down
 # ip tunnel del tunnel0
