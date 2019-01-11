@@ -19,23 +19,35 @@ GRE通用路由封装                                                    {#Gre}
 GRE（Generic Routing Encapsulation，通用路由封装）协议是对某些网络层协议（如IP 和IPX）
 的数据报文进行封装，使这些被封装的数据报文能够在另一个网络层协议（如IP）中传输。
 + GRE Tunnel是一个虚拟的点对点的连接，在实际中可以看成仅支持点对点连接的虚拟接口
+
 + GRE封装过程
+
 ![encap]({{ '/styles/images/log_file/vpn/gre_encap.png' | prepend: site.baseurl  }})
+
 经GRE模块处理后，原IP头部已经被封装在新IP头部和GRE头部之后;
+
 新IP头部的长度为20字节,新IP数据包的IP头部的协议号为47;
+
 GRE头部的长度为4～20字节（根据实际配置而定）;
+
 + GRE报文格式
+
 ![grepacket]({{ '/styles/images/log_file/vpn/gre_packet.png' | prepend: site.baseurl  }})
+
 GRE头部结构参照RFC1701定义;
+
 前4字节是必须出现的,第5～20字节将根据第1字节的相关bit位信息，可选出现;
+
 13~15bit 版本：需为0;
+
 16~31bit 协议类型：常用的协议，例如IP协议为0800
 
 GRE L3                                                    {#Grel3}
 ------------------------------------
 
 网络拓扑
-![grel3]({{ '/styles/images/log_file/vpn/gre_l3.jpg' | prepend: site.baseurl  }})
+
+![grel3]({{ '/styles/images/log_file/vpn/gre_l3.png' | prepend: site.baseurl  }})
 
 ```bash
 #常用GRE L3 TUNNEL在Linux下创建命令
@@ -54,7 +66,8 @@ GRE L2                                                    {#Grel2}
 ------------------------------------
 
 网络拓扑
-![grel2]({{ '/styles/images/log_file/vpn/gre_l2.jpg' | prepend: site.baseurl  }})
+
+![grel2]({{ '/styles/images/log_file/vpn/gre_l2.png' | prepend: site.baseurl  }})
 
 ```bash
 #GRE L2桥接创建方式
@@ -66,7 +79,7 @@ GRE L2                                                    {#Grel2}
 ```
 
 GRE与NAT                                                    {#GreNat}
-------------------------------------
+====================================
 
 由于GRE没有所谓传输层的端口，所以在网络链路上存在多个GRE连接就会出现不能进行NAPT转换。
 因此某种程度上来说，GRE与NAT无法共存。若用户一定要使用GRE VPN，且中间链路存在NAT时，
