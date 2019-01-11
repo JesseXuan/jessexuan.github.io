@@ -45,6 +45,7 @@ GRE头部结构参照RFC1701定义;
 GRE L3                                                    {#Grel3}
 ------------------------------------
 
+该模式是目前最常用的IP in IP隧道方式。
 网络拓扑
 
 ![grel3]({{ '/styles/images/log_file/vpn/gre_l3.png' | prepend: site.baseurl  }})
@@ -55,6 +56,8 @@ GRE L3                                                    {#Grel3}
 # ip link set tunnel0 up mtu 1414
 # ip addr add 172.16.168.1/30 dev tunnel0
 # ip addr add 172.16.168.1/30 peer 172.16.168.2/30 dev tunnel0
+
+#在VPN服务器或者VPN终端上添加需要访问远端的流量路由进隧道内传输
 # ip route add 192.168.150.0/24 dev tunnel0
 
 #删除tunnel
@@ -77,6 +80,12 @@ GRE L2                                                    {#Grel2}
 # brctl addif br0 gretap1
 # brctl addif br0 eth0
 ```
+
+GRE Tunnel MTU问题                                                    {#MTU}
+------------------------------------
+
+MTU大小设置
+
 
 GRE与NAT                                                    {#GreNat}
 ====================================
