@@ -12,41 +12,38 @@ tag: VPN
 
 前言
 ====================================
-因为ipsec包已经被加密，所以没有相应密匙信息，wireshark是无法解密的。
-介于目前小站大部分情况需要先通过建立ipsec VPN后，再与核心网通信，为
-此写下解包步骤记录方便后续的测试。
+PPTP VPN搭建
 
-GRE通用路由封装                                                    {#Gre}
-====================================
-GRE（Generic Routing Encapsulation，通用路由封装）协议是对某些网络层协议（如IP 和IPX）
-的数据报文进行封装，使这些被封装的数据报文能够在另一个网络层协议（如IP）中传输。
-+ GRE Tunnel是一个虚拟的点对点的连接，在实际中可以看成仅支持点对点连接的虚拟接口
-+ GRE封装过程
-![encap]({{ '/styles/images/log_file/vpn/gre_encap.jpg' | prepend: site.baseurl  }})
-经GRE模块处理后，原IP头部已经被封装在新IP头部和GRE头部之后;
-新IP头部的长度为20字节,新IP数据包的IP头部的协议号为47;
-GRE头部的长度为4～20字节（根据实际配置而定）;
-+ GRE报文格式
-![grepacket]({{ '/styles/images/log_file/vpn/gre_packet.jpg' | prepend: site.baseurl  }})
-GRE头部结构参照RFC1701定义;
-前4字节是必须出现的,第5～20字节将根据第1字节的相关bit位信息，可选出现;
-13~15bit 版本：需为0;
-16~31bit 协议类型：常用的协议，例如IP协议为0800
+PPTP/L2TP服务器搭建教程网上较多，可以参考Linux系统搭建相关博客文章；
 
+本人实在太懒了，懒得去按网友文章的方式去安装搭建，毕竟环境不一样坑较多；
 
-GRE与NAT                                                    {#GreNat}
-------------------------------------
+而我直接选择了用RouterOS这个软路由镜像，简单易用，搭建快，功能可视化。
 
-由于GRE没有所谓传输层的端口，所以在网络链路上存在多个GRE连接就会出现不能进行NAPT转换。
-因此某种程度上来说，GRE与NAT无法共存。若用户一定要使用GRE VPN，且中间链路存在NAT时，
-一般通过VPN嵌套的方式来实现，譬如在GRE的隧道之上嵌套一层IPsec VPN隧道，通过IPsec可以
-穿越NAT的特性来达到用户需求。
 
 PPTP                                                    {#PPTP}
 ====================================
 + 打开wireshark，选中ESP包
++ PPTP报文格式
+
+![pptpPacket]({{ '/styles/images/log_file/vpn/pptp_packet.jpg' | prepend: site.baseurl  }})
+
 网络拓扑
-![pptp]({{ '/styles/images/log_file/vpn/pptp.jpg' | prepend: site.baseurl  }})
 
+![pptpTop]({{ '/styles/images/log_file/vpn/pptp_top.jpg' | prepend: site.baseurl  }})
 
+PPTP VPN隧道MTU问题                                                    {#GreMtu}
+------------------------------------
 
+由于创建VPN添加了封装报头，所以IP内部payload理应减小，否则容易出现payload过大造成丢包。
+
+CentOS 加载GRE后，默认隧道接口的MTU为1476；所以建议Layer3模式设置隧道接口MTU<=1476；
+
+Layer2模式下，增加了内层MAC信息，所以隧道接口MTU<=1462。
+
+PPTP与NAT                                                    {#GreNat}
+====================================
+由于GRE没有所谓传输层的端口，所以在网络链路上存在多个GRE连接就会出现不能进行NAPT转换。
+因此某种程度上来说，GRE与NAT无法共存。若用户一定要使用GRE VPN，且中间链路存在NAT时，
+一般通过VPN嵌套的方式来实现，譬如在GRE的隧道之上嵌套一层IPsec VPN隧道，通过IPsec可以
+穿越NAT的特性来达到用户需求。
