@@ -47,7 +47,7 @@ GRE L3                                                    {#Grel3}
 
 该模式是目前最常用的IP in IP隧道方式，这样两端内网即可互访。
 
-网络拓扑(R1路由终端，R2 CentOS服务器)
+网络拓扑(R1:路由终端，R2:CentOS服务器)
 
 ![grel3]({{ '/styles/images/log_file/vpn/gre_l3.png' | prepend: site.baseurl  }})
 
@@ -104,6 +104,7 @@ GRE隧道建立后的报文呈现：
 #如此例中，在192.168.110.1上添加静态路由
 # route add -net 192.168.150.0/24 gw 192.168.110.70
 ```
+设置完毕后，PC1上可以直接ping通PC2地址。
 
 GRE L2                                                    {#Grel2}
 ------------------------------------
