@@ -20,11 +20,11 @@ tag: 教程
 ====================================
 + 打开wireshark，选中ESP包
 + 右键选中ESP包，在“Ptotocol Preference”栏内勾选ESP相关的选项
-![step1]({{ '/styles/images/log_file/esp_step1.jpg' | prepend: site.baseurl  }})
+![step1]({{ '/styles/images/log_file/vpn/esp_step1.jpg' | prepend: site.baseurl  }})
 + 选择ESP SAs...后添加解密信息，注意发送/接收两个方向都需要添加
-![step2]({{ '/styles/images/log_file/esp_step2.jpg' | prepend: site.baseurl  }})
+![step2]({{ '/styles/images/log_file/vpn/esp_step2.jpg' | prepend: site.baseurl  }})
 + 添加信息完毕，点击Apply即可，返回即可呈现解密后的ESP包内容
-![step3]({{ '/styles/images/log_file/esp_step3.jpg' | prepend: site.baseurl  }})
+![step3]({{ '/styles/images/log_file/vpn/esp_step3.jpg' | prepend: site.baseurl  }})
 
 解密信息获取                                                    {#Info}
 ------------------------------------
