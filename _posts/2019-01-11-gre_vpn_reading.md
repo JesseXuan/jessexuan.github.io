@@ -64,6 +64,22 @@ GRE L3                                                    {#Grel3}
 # ip link set tunnel0 down
 # ip tunnel del tunnel0
 ```
+路由终端上GRE Layer3配置
+
+![grel3conf]({{ '/styles/images/log_file/vpn/gre_l3_conf.png' | prepend: site.baseurl  }})
+
+GRE VPN建立的时候是不可靠的，类似UDP传输一样，不需要对方的确认
+GRE隧道建立后的报文呈现：
++ 路由终端启用NAT时(源地址在WAN口出去时被替换成VPN tunnel local ip)
+
+![grel3nat1]({{ '/styles/images/log_file/vpn/gre_l3_nat1.png' | prepend: site.baseurl  }})
+![grel3nat2]({{ '/styles/images/log_file/vpn/gre_l3_nat2.png' | prepend: site.baseurl  }})
+
++ 路由终端禁用NAT时（没有出现源地址进行NAT转换，所以需要在目的端添加回程路由）
+
+![grel3router]({{ '/styles/images/log_file/vpn/gre_l3_no_nat.png' | prepend: site.baseurl  }})
+
+
 
 GRE L2                                                    {#Grel2}
 ------------------------------------
@@ -80,6 +96,9 @@ GRE L2                                                    {#Grel2}
 # brctl addif br0 gretap1
 # brctl addif br0 eth0
 ```
+路由终端上GRE Layer2配置
+
+![grel2conf]({{ '/styles/images/log_file/vpn/gre_l2_conf.png' | prepend: site.baseurl  }})
 
 GRE Tunnel MTU问题                                                    {#MTU}
 ------------------------------------
