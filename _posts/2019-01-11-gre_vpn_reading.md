@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "GRE VPN解读记录"
+title:  "GRE VPN测试配置记录"
 date:   2019-01-11 10:31:01 +0800
 categories: 数通
 tag: VPN
@@ -142,7 +142,11 @@ PC1可以动态获取到PC2相同网段IP，可以正常互相通信。
 GRE Tunnel MTU问题                                                    {#MTU}
 ------------------------------------
 
-MTU大小设置
+由于创建VPN添加了封装报头，所以IP内部payload理应减小，否则容易出现payload过大造成丢包。
+
+CentOS 加载GRE后，默认隧道接口的MTU为1476；所以建议Layer3模式设置隧道接口MTU<=1476；
+
+Layer2模式下，增加了内层MAC信息，所以隧道接口MTU<=1462。
 
 
 GRE与NAT                                                    {#GreNat}
