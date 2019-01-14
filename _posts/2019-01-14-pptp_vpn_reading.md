@@ -79,7 +79,7 @@ PPTP MTU/MRU = 1500 - 40(outside IP header 20B, GRE header 16B, PPP header 4B) =
 
 所以正常的以太网环境里pptp虚拟接口MTU设置要<=1460字节，如中间环节还有穿插了别的环境节点
 
-需要重新评估，比如中间有LTE网络，即增加了LTE数据面GTP隧道。
+需要重新评估，比如中间有LTE网络，即再增加了LTE数据面GTP隧道（20+8+8）。
 
 PPTP与NAT                                                    {#GreNat}
 ====================================
@@ -90,7 +90,8 @@ PPTP与NAT                                                    {#GreNat}
 参考链接                                                    {#Ref}
 ====================================
 [PPTP协议握手流程分析][https://blog.csdn.net/hdxlzh/article/details/46711901]
-
+(https://blog.csdn.net/hdxlzh/article/details/4671190)
 [PPTP 理解以及报文的分析][https://blog.csdn.net/zhaqiwen/article/details/10083025]
-
+(https://blog.csdn.net/zhaqiwen/article/details/10083025)
 [PPTP穿透NAT之深入分析][https://blog.csdn.net/eydwyz/article/details/54879787]
+(https://blog.csdn.net/eydwyz/article/details/54879787)
