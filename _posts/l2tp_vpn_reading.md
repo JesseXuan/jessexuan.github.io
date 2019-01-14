@@ -47,14 +47,13 @@ L2TP                                                    {#L2TP}
 ====================================
 + 打开wireshark，选中ESP包
 网络拓扑
-![l2tp]({{ '/styles/images/log_file/vpn/l2tp.jpg' | prepend: site.baseurl  }})
+![l2tp]({{ '/styles/images/log_file/vpn/l2tp.png' | prepend: site.baseurl  }})
 
 
 L2TP BCP                                                    {#BCP}
 ====================================
 + 打开wireshark，选中ESP包
 网络拓扑
-![bcp]({{ '/styles/images/log_file/vpn/l2tp_bcp.jpg' | prepend: site.baseurl  }})
-
+![bcp]({{ '/styles/images/log_file/vpn/l2tp_bcp.png' | prepend: site.baseurl  }})
 
 
