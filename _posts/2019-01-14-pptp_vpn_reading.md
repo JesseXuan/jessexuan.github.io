@@ -65,7 +65,7 @@ PPTP                                                    {#PPTP}
 
 ![pptpConf]({{ '/styles/images/log_file/vpn/pptp_conf.png' | prepend: site.baseurl  }})
 
-PPTP实测报文呈现
+PPTP实测报文呈现(控制连接建立与真实业务数据连接报文)
 
 ![pptpCont]({{ '/styles/images/log_file/vpn/pptp_cont_pk.png' | prepend: site.baseurl  }})
 
@@ -92,7 +92,7 @@ PPTP与NAT                                                    {#GreNat}
 
 参考链接                                                    {#Ref}
 ====================================
-PPTP协议握手流程分析[https://blog.csdn.net/hdxlzh/article/details/46711901](https://blog.csdn.net/hdxlzh/article/details/4671190)
+PPTP协议握手流程分析[https://blog.csdn.net/hdxlzh/article/details/46711901](https://blog.csdn.net/hdxlzh/article/details/46711901)
 
 PPTP 理解以及报文的分析[https://blog.csdn.net/zhaqiwen/article/details/10083025](https://blog.csdn.net/zhaqiwen/article/details/10083025)
 
