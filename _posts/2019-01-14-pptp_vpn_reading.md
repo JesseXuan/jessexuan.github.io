@@ -71,6 +71,9 @@ PPTP实测报文呈现
 
 ![pptpData]({{ '/styles/images/log_file/vpn/pptp_data_pk.png' | prepend: site.baseurl  }})
 
+由PC1(192.168.150.10) ping PC2(192.168.110.70)在路由终端出口后被转换成PPTP服务器分配的
+
+虚拟IP(172.31.0.10)。
 
 PPTP VPN隧道MTU问题                                                    {#GreMtu}
 ------------------------------------
@@ -89,9 +92,8 @@ PPTP与NAT                                                    {#GreNat}
 
 参考链接                                                    {#Ref}
 ====================================
-[PPTP协议握手流程分析][https://blog.csdn.net/hdxlzh/article/details/46711901]
-(https://blog.csdn.net/hdxlzh/article/details/4671190)
-[PPTP 理解以及报文的分析][https://blog.csdn.net/zhaqiwen/article/details/10083025]
-(https://blog.csdn.net/zhaqiwen/article/details/10083025)
-[PPTP穿透NAT之深入分析][https://blog.csdn.net/eydwyz/article/details/54879787]
-(https://blog.csdn.net/eydwyz/article/details/54879787)
+PPTP协议握手流程分析[https://blog.csdn.net/hdxlzh/article/details/46711901](https://blog.csdn.net/hdxlzh/article/details/4671190)
+
+PPTP 理解以及报文的分析[https://blog.csdn.net/zhaqiwen/article/details/10083025](https://blog.csdn.net/zhaqiwen/article/details/10083025)
+
+PPTP穿透NAT之深入分析[https://blog.csdn.net/eydwyz/article/details/54879787](https://blog.csdn.net/eydwyz/article/details/54879787)
