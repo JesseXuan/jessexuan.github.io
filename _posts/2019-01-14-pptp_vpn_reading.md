@@ -65,7 +65,7 @@ PPTP                                                    {#PPTP}
 
 ![pptpConf]({{ '/styles/images/log_file/vpn/pptp_conf.png' | prepend: site.baseurl  }})
 
-PPTP实测报文呈现(控制连接建立与真实业务数据连接报文)
+PPTP实测报文呈现(控制连接建立与真实业务数据连接报文，报文与链路中间节点抓取)
 
 ![pptpCont]({{ '/styles/images/log_file/vpn/pptp_cont_pk.png' | prepend: site.baseurl  }})
 
