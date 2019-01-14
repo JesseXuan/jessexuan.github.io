@@ -61,15 +61,15 @@ PPTP                                                    {#PPTP}
 
 网络拓扑
 
-![pptpTop]({{ '/styles/images/log_file/vpn/pptp_top.jpg' | prepend: site.baseurl  }})
+![pptpTop]({{ '/styles/images/log_file/vpn/pptp_top.png' | prepend: site.baseurl  }})
 
-![pptpConf]({{ '/styles/images/log_file/vpn/pptp_conf.jpg' | prepend: site.baseurl  }})
+![pptpConf]({{ '/styles/images/log_file/vpn/pptp_conf.png' | prepend: site.baseurl  }})
 
 PPTP实测报文呈现
 
-![pptpCont]({{ '/styles/images/log_file/vpn/pptp_cont_pk.jpg' | prepend: site.baseurl  }})
+![pptpCont]({{ '/styles/images/log_file/vpn/pptp_cont_pk.png' | prepend: site.baseurl  }})
 
-![pptpData]({{ '/styles/images/log_file/vpn/pptp_data_pk.jpg' | prepend: site.baseurl  }})
+![pptpData]({{ '/styles/images/log_file/vpn/pptp_data_pk.png' | prepend: site.baseurl  }})
 
 
 PPTP VPN隧道MTU问题                                                    {#GreMtu}
