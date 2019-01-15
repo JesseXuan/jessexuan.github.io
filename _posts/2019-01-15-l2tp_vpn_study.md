@@ -70,9 +70,15 @@ L2TP与PPTP                                                    {#Comp}
 + L2TP可以提供包头压缩。当压缩包头时，系统开销占用4个字节，而PPTP协议要用6个字节
 + PPTP依靠MPPE提供加密服务，而L2TP依靠IPSec提供加密服务
 
+BCP                                                    {#BCP}
+====================================
+桥接控制协议（BCP）主要负责配置点对点链接终端的桥接协议参数。BCP 与链路控制协议使用相同的包交换机制。当 PPP 还未 到达网络层协议阶段时，不能交换 BCP 数据包，且在到达该阶段之前收到的 BCP 数据包则被丢弃。
+BCP协议通过PPP协议将两个远端的以太网数据链路打通，BCP建立后独立于PPP隧道，将不与任何PPP的IP地址接口有关系。
+
 参考链接                                                    {#Ref}
 ====================================
 L2TP协议原理[https://wenku.baidu.com/view/c88887e383d049649b6658fa.html](https://wenku.baidu.com/view/c88887e383d049649b6658fa.html)
 
 L2TP详解[https://blog.csdn.net/u013485792/article/details/50838272](https://blog.csdn.net/u013485792/article/details/50838272)
 
+BCP协议[http://www.360doc.com/content/17/0402/16/1394672_642333217.shtml#](http://www.360doc.com/content/17/0402/16/1394672_642333217.shtml#)
