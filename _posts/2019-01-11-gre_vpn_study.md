@@ -14,6 +14,10 @@ tag: VPN
 ====================================
 介于路由终端VPN功能测试。
 
+本篇属于VPN系列的第一篇，关于常用VPN协议的原理可以参考
+
+[GRE、PPTP、L2TP隧道协议](https://blog.csdn.net/eydwyz/article/details/54879808)
+
 GRE通用路由封装                                                    {#Gre}
 ====================================
 GRE（Generic Routing Encapsulation，通用路由封装）协议是对某些网络层协议（如IP 和IPX）
@@ -144,7 +148,7 @@ GRE Tunnel MTU问题                                                    {#MTU}
 
 由于创建VPN添加了封装报头，所以IP内部payload理应减小，否则容易出现payload过大造成丢包。
 
-CentOS 加载GRE后，默认隧道接口的MTU为1476；所以建议Layer3模式设置隧道接口MTU<=1476；
+CentOS 加载GRE后，默认隧道接口的MTU为1476(1500-20ip-4gre)；所以建议Layer3模式设置隧道接口MTU<=1476；
 
 Layer2模式下，增加了内层MAC信息，所以隧道接口MTU<=1462。
 
@@ -157,3 +161,4 @@ GRE与NAT                                                    {#GreNat}
 一般通过VPN嵌套的方式来实现，譬如在GRE的隧道之上嵌套一层IPsec VPN隧道，通过IPsec可以
 穿越NAT的特性来达到用户需求。
 
+参考：[传统VPN与NAT穿越的兼容性](http://www.h3c.com/cn/d_201206/747032_97665_0.htm#)

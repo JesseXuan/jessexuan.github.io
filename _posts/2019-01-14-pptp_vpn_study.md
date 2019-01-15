@@ -71,7 +71,7 @@ PPTP实测报文呈现(控制连接建立与真实业务数据连接报文，报
 
 ![pptpData]({{ '/styles/images/log_file/vpn/pptp_data_pk.png' | prepend: site.baseurl  }})
 
-由PC1(192.168.150.10) ping PC2(192.168.110.70)在路由终端出口后被转换成PPTP服务器分配的
+由PC1(192.168.150.10) ping PC2(192.168.22.100)在路由终端出口后被转换成PPTP服务器分配的
 
 虚拟IP(172.31.0.10)。
 
