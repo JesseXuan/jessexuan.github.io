@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "ipsec VPN测试配置记录"
-date:   2019-01-11 10:31:01 +0800
+title:  "IPSec VPN测试配置记录"
+date:   2019-01-16 10:31:01 +0800
 categories: 数通
 tag: VPN
 ---
@@ -16,7 +16,7 @@ tag: VPN
 介于目前小站大部分情况需要先通过建立ipsec VPN后，再与核心网通信，为
 此写下解包步骤记录方便后续的测试。
 
-GRE通用路由封装                                                    {#Gre}
+IPSec原理概述                                                    {#IPsec}
 ====================================
 GRE（Generic Routing Encapsulation，通用路由封装）协议是对某些网络层协议（如IP 和IPX）
 的数据报文进行封装，使这些被封装的数据报文能够在另一个网络层协议（如IP）中传输。
@@ -34,7 +34,13 @@ GRE头部结构参照RFC1701定义;
 16~31bit 协议类型：常用的协议，例如IP协议为0800
 
 
-GRE与NAT                                                    {#GreNat}
+IPSEC                                                    {#Ipsec}
+====================================
++ 打开wireshark，选中ESP包
+网络拓扑
+![ipsec]({{ '/styles/images/log_file/vpn/ipsec.jpg' | prepend: site.baseurl  }})
+
+IPSec与NAT                                                    {#Nat}
 ------------------------------------
 
 由于GRE没有所谓传输层的端口，所以在网络链路上存在多个GRE连接就会出现不能进行NAPT转换。
@@ -42,11 +48,12 @@ GRE与NAT                                                    {#GreNat}
 一般通过VPN嵌套的方式来实现，譬如在GRE的隧道之上嵌套一层IPsec VPN隧道，通过IPsec可以
 穿越NAT的特性来达到用户需求。
 
-IPSEC                                                    {#Ipsec}
+参考链接                                                    {#Ref}
 ====================================
-+ 打开wireshark，选中ESP包
-网络拓扑
-![ipsec]({{ '/styles/images/log_file/vpn/ipsec.jpg' | prepend: site.baseurl  }})
+IPSEC原理[https://www.cnblogs.com/xiaohuamao/p/8021850.html](https://www.cnblogs.com/xiaohuamao/p/8021850.html)
 
+IPSec及IKE原理[https://www.jianshu.com/p/66b0c193db46](https://www.jianshu.com/p/66b0c193db46)
 
+IPsec总结[http://blog.51cto.com/13596342/2164126](http://blog.51cto.com/13596342/2164126)
 
+IPSec原理与配置[http://blog.51cto.com/yangshufan/2103655](http://blog.51cto.com/yangshufan/2103655)
