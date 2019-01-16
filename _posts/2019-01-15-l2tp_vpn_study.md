@@ -75,6 +75,23 @@ BCP                                                    {#BCP}
 桥接控制协议（BCP）主要负责配置点对点链接终端的桥接协议参数。BCP 与链路控制协议使用相同的包交换机制。当 PPP 还未 到达网络层协议阶段时，不能交换 BCP 数据包，且在到达该阶段之前收到的 BCP 数据包则被丢弃。
 BCP协议通过PPP协议将两个远端的以太网数据链路打通，BCP建立后独立于PPP隧道，将不与任何PPP的IP地址接口有关系。
 
+BCP连接测试
+------------------------------------
+
+网络拓扑
+
+![bcpTop]({{ '/styles/images/log_file/vpn/l2tp_bcp_top.png' | prepend: site.baseurl  }})
+
+![bcpConf]({{ '/styles/images/log_file/vpn/l2tp_bcp_conf.png' | prepend: site.baseurl  }})
+
+BCP实测报文呈现(控制连接建立与真实业务数据连接报文，报文与链路中间节点抓取)
+
+![bcpCont]({{ '/styles/images/log_file/vpn/l2tp_bcp_cont_pk.png' | prepend: site.baseurl  }})
+
+![bcpData]({{ '/styles/images/log_file/vpn/l2tp_bcp_data_pk.png' | prepend: site.baseurl  }})
+
+BCP创建成功后，路由终端下的PC可从远端的DHCP服务器直接拿到地址。
+
 参考链接                                                    {#Ref}
 ====================================
 L2TP协议原理[https://wenku.baidu.com/view/c88887e383d049649b6658fa.html](https://wenku.baidu.com/view/c88887e383d049649b6658fa.html)
