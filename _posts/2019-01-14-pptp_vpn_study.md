@@ -97,3 +97,5 @@ PPTP协议握手流程分析[https://blog.csdn.net/hdxlzh/article/details/467119
 PPTP 理解以及报文的分析[https://blog.csdn.net/zhaqiwen/article/details/10083025](https://blog.csdn.net/zhaqiwen/article/details/10083025)
 
 PPTP穿透NAT之深入分析[https://blog.csdn.net/eydwyz/article/details/54879787](https://blog.csdn.net/eydwyz/article/details/54879787)
+
+Centos7.5 系统使用pptpd搭建服务器[http://blog.51cto.com/5001660/2177407](http://blog.51cto.com/5001660/2177407)
