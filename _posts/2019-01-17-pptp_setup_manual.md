@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "PPTP VPN搭建测试记录"
+title:  "PPTP VPN搭建测试记录(二)"
 date:   2019-01-17 10:31:01 +0800
 categories: 数通
 tag: VPN
@@ -148,10 +148,15 @@ pptpd服务器端的mppe配置【在上面step8里/etc/ppp/options.pptpd启用re
 路由终端（VPN客户端）的mppe配置
 ![mppeconf2]({{ '/styles/images/log_file/vpn/pptp/mppe_conf2.png' | prepend: site.baseurl  }})
 
+Win7上创建的pptp连接默认是需要加密即mppe配置，如服务器端没有启用mppe，则选择“可选加密”，否则连接报“错误 628”
+![win7pptp]({{ '/styles/images/log_file/vpn/pptp/win7_pptp.png' | prepend: site.baseurl  }})
+
 
 通过网关VPN服务器连外网                                                    {#Gate}
 ====================================
-设置转发规则，从源地址发出的所有包进行伪装，改变地址，由WAN口发出--NAT外网转换。
+如果需要通过VPN服务器连接外网，则需要在VPN服务器WAN口上做NAT转发；
+
+设置转发规则，从源地址发出的所有包进行伪装，改变地址。
 ```bash
 # iptables -t nat -A POSTROUTING -s 10.0.10.0/24 -o em1 -j MASQUERADE
 # chmod +x /etc/rc.d/rc.local

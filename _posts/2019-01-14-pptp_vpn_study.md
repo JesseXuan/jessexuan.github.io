@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "PPTP VPN测试配置记录"
+title:  "PPTP VPN搭建测试记录(一)"
 date:   2019-01-14 10:31:01 +0800
 categories: 数通
 tag: VPN
