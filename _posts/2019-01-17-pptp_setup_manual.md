@@ -128,6 +128,9 @@ PPTP搭建步骤                                                    {#Steps}
 
 PPTP连接                                                    {#Link}
 ====================================
+PPTP VPN连接建立
+------------------------------------
+
 PPTP控制连接建立过程
 ![pptpCont]({{ '/styles/images/log_file/vpn/pptp/pptp_cont.png' | prepend: site.baseurl  }})
 
