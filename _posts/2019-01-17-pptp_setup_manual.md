@@ -119,9 +119,10 @@ PPTP搭建步骤                                                    {#Steps}
 # systemctl disable firewalld.service
 # setenforce 0
 # vim /etc/sysconfig/selinux
+# 
 # systemctl restart pptpd.service
 #
-#开机自启动pptpd
+#设置开机自启动pptpd
 # systemctl enable pptpd.service
 ```
 
@@ -149,6 +150,7 @@ pptpd服务器端的mppe配置【在上面step8里/etc/ppp/options.pptpd启用re
 ![mppeconf2]({{ '/styles/images/log_file/vpn/pptp/mppe_conf2.png' | prepend: site.baseurl  }})
 
 Win7上创建的pptp连接默认是需要加密即mppe配置，如服务器端没有启用mppe，则选择“可选加密”，否则连接报“错误 628”
+
 ![win7pptp]({{ '/styles/images/log_file/vpn/pptp/win7_pptp.png' | prepend: site.baseurl  }})
 
 
