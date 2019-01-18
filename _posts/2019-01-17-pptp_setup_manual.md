@@ -49,7 +49,7 @@ PPTP搭建步骤                                                    {#Steps}
 ```
 ![pppcom]({{ '/styles/images/log_file/vpn/pptp/step3.png' | prepend: site.baseurl  }})
 
-+ 安装PPP
++ 安装PPP拨号软件
 ```bash
 # yum install -y ppp
 ```
@@ -129,7 +129,7 @@ PPTP搭建步骤                                                    {#Steps}
 PPTP连接                                                    {#Link}
 ====================================
 
-PPTP VPN连接建立
+PPTP VPN连接建立                                             {#Setup}
 ------------------------------------
 
 PPTP控制连接建立过程
@@ -138,7 +138,7 @@ PPTP控制连接建立过程
 PPTP数据连接报文
 ![pptpData]({{ '/styles/images/log_file/vpn/pptp/pptp_data.png' | prepend: site.baseurl  }})
 
-MPPE加密
+MPPE加密                                                   {#Mppe}
 ------------------------------------
 
 安装后PPTP默认启用了MPPE加密，可以看到wireshark无法显示PPP compressed Datagram的。
