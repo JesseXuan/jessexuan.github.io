@@ -85,7 +85,11 @@ PPTP搭建步骤                                                    {#Steps}
 #添加pptpd日志记录路径
 # vim /etc/ppp/options.pptpd
 ```
+1. 去掉注释并且修改相应的DNS IP，建议WAN口的DNS
+
 ![oppptp]({{ '/styles/images/log_file/vpn/pptp/step8_1.png' | prepend: site.baseurl  }})
+
+2. 添加pptpd运行记录路径
 
 ![oppptp]({{ '/styles/images/log_file/vpn/pptp/step8_2.png' | prepend: site.baseurl  }})
 
@@ -145,7 +149,7 @@ pptpd服务器端的mppe配置【在上面step8里/etc/ppp/options.pptpd启用re
 ![mppeconf2]({{ '/styles/images/log_file/vpn/pptp/mppe_conf2.png' | prepend: site.baseurl  }})
 
 
-关于通过网关VPN服务器连外网                                                    {#Gate}
+通过网关VPN服务器连外网                                                    {#Gate}
 ====================================
 设置转发规则，从源地址发出的所有包进行伪装，改变地址，由WAN口发出--NAT外网转换。
 ```bash
