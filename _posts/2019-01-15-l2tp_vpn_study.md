@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "L2TP VPN搭建测试记录"
+title:  "L2TP VPN搭建测试记录(一)"
 date:   2019-01-15 10:31:01 +0800
 categories: 数通
 tag: VPN
