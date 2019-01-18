@@ -153,7 +153,7 @@ pptpd服务器端的mppe配置【在上面step8里/etc/ppp/options.pptpd启用re
 路由终端（VPN客户端）的mppe配置
 ![mppeconf2]({{ '/styles/images/log_file/vpn/pptp/mppe_conf2.png' | prepend: site.baseurl  }})
 
-Win7上创建的pptp连接默认是需要加密即mppe配置，如服务器端没有启用mppe，则选择“可选加密”，否则连接报“错误 628”
+Win7上创建的pptp连接默认是"需要加密"即mppe配置，如服务器端没有启用mppe，则选择“可选加密”，否则连接报“错误 628”
 
 ![win7pptp]({{ '/styles/images/log_file/vpn/pptp/win7_pptp.png' | prepend: site.baseurl  }})
 
