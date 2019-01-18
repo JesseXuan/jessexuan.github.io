@@ -24,7 +24,9 @@ PPTP原理可以浏览博文《PPTP VPN测试配置记录》。
 + VPN客户端CPE：wan(10.56.88.66), lan(192.168.150.1)
 + 测试PC1：192.168.150.100
 + 测试Windows VPN客户端PC2：192.168.22.98
+
 网络拓扑
+
 ![topo]({{ '/styles/images/log_file/vpn/pptp/topo.jpg' | prepend: site.baseurl  }})
 
 PPTP搭建步骤                                                    {#Steps}
@@ -131,6 +133,8 @@ MPPE加密
 ------------------------------------
 
 安装后PPTP默认启用了MPPE加密，可以看到wireshark无法显示PPP compressed Datagram的。
+VPN两端都必须同时启用，否则CCP协商不通过导致隧道连接建立失败。
+
 MPPE加密的PPTP数据报文
 ![mppe]({{ '/styles/images/log_file/vpn/pptp/mppe_pk.png' | prepend: site.baseurl  }})
 
@@ -152,4 +156,4 @@ pptpd服务器端的mppe配置【在上面step8里/etc/ppp/options.pptpd启用re
 
 参考链接                                                    {#Ref}
 ====================================
-Centos7.5 系统使用pptpd搭建服务器[](http://blog.51cto.com/5001660/2177407)
+Centos7.5 系统使用pptpd搭建服务器[http://blog.51cto.com/5001660/2177407](http://blog.51cto.com/5001660/2177407)
