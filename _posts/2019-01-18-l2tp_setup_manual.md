@@ -100,12 +100,14 @@ L2TP连接                                                    {#Link}
 ====================================
 
 L2TP控制连接建立过程
+
 ![l2tpCont]({{ '/styles/images/log_file/vpn/l2tp/l2tp_cont.png' | prepend: site.baseurl  }})
 
 L2TP数据连接报文
+
 ![l2tpData]({{ '/styles/images/log_file/vpn/l2tp/l2tp_data.png' | prepend: site.baseurl  }})
 
-IPSec加密                                                    {#Ipsec}
+基于IPSec加密                                                    {#Ipsec}
 ====================================
 按上述步骤搭建好之后，以linux(openwrt)的路由器充当VPN客户端若建立不成功，可注释options.xl2tpd里的crtscts,lock再尝试。
 
@@ -125,9 +127,11 @@ IPSec加密                                                    {#Ipsec}
 ![ipsecConf]({{ '/styles/images/log_file/vpn/l2tp/ipsec_conf.png' | prepend: site.baseurl  }})
 
 + 设置预共享密钥文件/etc/ipsec.secrets
+
 ![ipsecSec]({{ '/styles/images/log_file/vpn/l2tp/ipsec_psk.png' | prepend: site.baseurl  }})
 
 + 修改xl2tpd.conf关联ipsec
+
 ![ipsecXl2tpd]({{ '/styles/images/log_file/vpn/l2tp/ipsec_xl2tpd.png' | prepend: site.baseurl  }})
 
 + 修改内核转发功能/etc/sysctl.conf(将服务器内部的ip地址关系进行转发和映射)
@@ -159,6 +163,7 @@ IPSec加密                                                    {#Ipsec}
 # systemctl enable ipsec
 ```
 + 验证VPN建立情况【win7上直接建立l2tp/ipsec测试成功】
+
 ![ipsecWin7]({{ '/styles/images/log_file/vpn/l2tp/ipsec_win7.png' | prepend: site.baseurl  }})
 
 
