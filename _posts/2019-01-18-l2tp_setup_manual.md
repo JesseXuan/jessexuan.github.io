@@ -96,6 +96,10 @@ L2TP搭建步骤                                                    {#Steps}
 # systemctl enable xl2tpd.service
 ```
 
++ VPN客户端配置(路由终端)
+
+![clientconf]({{ '/styles/images/log_file/vpn/l2tp/client_conf.png' | prepend: site.baseurl  }})
+
 L2TP连接                                                    {#Link}
 ====================================
 
@@ -137,6 +141,7 @@ L2TP数据连接报文
 + 修改内核转发功能/etc/sysctl.conf(将服务器内部的ip地址关系进行转发和映射)
 ```bash
 # vim /etc/sysctl.conf
+# sysctl -a | egrep "ipv4.*(accept|send)_redirects" | awk -F "=" '{print$1"= 0"}' >> /etc/sysctl.conf
 # sysctl -p
 ```
 ![ipsecSysctl]({{ '/styles/images/log_file/vpn/l2tp/ipsec_sysctl.png' | prepend: site.baseurl  }})
@@ -166,6 +171,13 @@ L2TP数据连接报文
 
 ![ipsecWin7]({{ '/styles/images/log_file/vpn/l2tp/ipsec_win7.png' | prepend: site.baseurl  }})
 
++ VPN服务器与Win7客户端测试结果【此配置下win7 ipsec以ike v1方式建立】
+
+![ipsecServerState]({{ '/styles/images/log_file/vpn/l2tp/ipsec_win7_server_state.png' | prepend: site.baseurl  }})
+
+![ipsecWin7State]({{ '/styles/images/log_file/vpn/l2tp/ipsec_win7_state.png' | prepend: site.baseurl  }})
+
+![ipsecWin7Data]({{ '/styles/images/log_file/vpn/l2tp/ipsec_win7_data.png' | prepend: site.baseurl  }})
 
 通过网关VPN服务器连外网                                                    {#Gate}
 ====================================
