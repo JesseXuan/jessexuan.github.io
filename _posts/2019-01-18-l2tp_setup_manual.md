@@ -98,7 +98,7 @@ L2TP搭建步骤                                                    {#Steps}
 
 + VPN客户端配置(路由终端)
 
-![clientconf]({{ '/styles/images/log_file/vpn/l2tp/client_conf.png' | prepend: site.baseurl  }})
+![clientconf]({{ '/styles/images/log_file/vpn/l2tp/xl2tpd_client_conf.png' | prepend: site.baseurl  }})
 
 L2TP连接                                                    {#Link}
 ====================================
