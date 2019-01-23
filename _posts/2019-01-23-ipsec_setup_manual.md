@@ -57,10 +57,10 @@ IPSEC搭建                                                    {#Ipsecbuild}
 
 + 配置ipsec密钥文件/etc/ipsec.secrets
 > vim /etc/ipsec.secrets
-
-> #include /etc/ipsec.d/*.secrets
-
-> 192.168.22.198  %any:   PSK "jesse"
+```bash
+#include /etc/ipsec.d/*.secrets
+192.168.22.198  %any:   PSK "jesse"
+```
 
 + 启动ipsec服务
 ```bash
