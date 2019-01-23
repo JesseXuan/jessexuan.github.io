@@ -20,6 +20,12 @@ IPSec概述                                                    {#IPsec}
 
 IPSEC搭建                                                    {#Ipsecbuild}
 ====================================
++ 测试环境描述
+1. IPSEC服务器系统CentOS7，libreswan软件
+2. VPN服务器198双网卡：wan--em1(192.168.22.198), lan--p1p1(192.168.0.186)
+3. VPN服务器196双网卡：wan--em1(192.168.22.196), lan--p1p1(192.168.110.70)
+4. 测试PC1：192.168.0.115, gw 192.168.0.186
+5. 测试PC2：192.168.110.30, gw 192.168.110.70
 + 测试实验网络拓扑
 
 ![topo]({{ '/styles/images/log_file/vpn/ipsec/topo.jpg' | prepend: site.baseurl  }})
