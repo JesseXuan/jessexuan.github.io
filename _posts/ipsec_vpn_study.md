@@ -57,3 +57,7 @@ IPSec及IKE原理[https://www.jianshu.com/p/66b0c193db46](https://www.jianshu.co
 IPsec总结[http://blog.51cto.com/13596342/2164126](http://blog.51cto.com/13596342/2164126)
 
 IPSec原理与配置[http://blog.51cto.com/yangshufan/2103655](http://blog.51cto.com/yangshufan/2103655)
+
+IPSEC实现分析[https://wenku.baidu.com/view/b776b9bcfe4733687f21aa59.html?pn=50](https://wenku.baidu.com/view/b776b9bcfe4733687f21aa59.html?pn=50)
+
+IKEv1和IKEv2有哪些区别[https://wenku.baidu.com/view/1f52ba1d0a4e767f5acfa1c7aa00b52acfc79c7a.html](https://wenku.baidu.com/view/1f52ba1d0a4e767f5acfa1c7aa00b52acfc79c7a.html)
