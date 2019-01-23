@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "IPSec VPN测试配置记录"
-date:   2019-01-16 10:31:01 +0800
+title:  "IPSec VPN搭建测试记录(一)"
+date:   2019-01-22 10:31:01 +0800
 categories: 数通
 tag: VPN
 ---
@@ -22,12 +22,12 @@ GRE（Generic Routing Encapsulation，通用路由封装）协议是对某些网
 的数据报文进行封装，使这些被封装的数据报文能够在另一个网络层协议（如IP）中传输。
 + GRE Tunnel是一个虚拟的点对点的连接，在实际中可以看成仅支持点对点连接的虚拟接口
 + GRE封装过程
-![encap]({{ '/styles/images/log_file/vpn/gre_encap.jpg' | prepend: site.baseurl  }})
+![encap]({{ '/styles/images/log_file/vpn/ipsec/gre_encap.jpg' | prepend: site.baseurl  }})
 经GRE模块处理后，原IP头部已经被封装在新IP头部和GRE头部之后;
 新IP头部的长度为20字节,新IP数据包的IP头部的协议号为47;
 GRE头部的长度为4～20字节（根据实际配置而定）;
 + GRE报文格式
-![grepacket]({{ '/styles/images/log_file/vpn/gre_packet.jpg' | prepend: site.baseurl  }})
+![grepacket]({{ '/styles/images/log_file/vpn/ipsec/gre_packet.jpg' | prepend: site.baseurl  }})
 GRE头部结构参照RFC1701定义;
 前4字节是必须出现的,第5～20字节将根据第1字节的相关bit位信息，可选出现;
 13~15bit 版本：需为0;
@@ -38,7 +38,7 @@ IPSEC                                                    {#Ipsec}
 ====================================
 + 打开wireshark，选中ESP包
 网络拓扑
-![ipsec]({{ '/styles/images/log_file/vpn/ipsec.jpg' | prepend: site.baseurl  }})
+![ipsec]({{ '/styles/images/log_file/vpn/ipsec/ipsec.jpg' | prepend: site.baseurl  }})
 
 IPSec与NAT                                                    {#Nat}
 ------------------------------------
