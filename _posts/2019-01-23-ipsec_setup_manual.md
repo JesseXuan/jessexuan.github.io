@@ -104,6 +104,31 @@ IKE v2                                                    {#V2}
 
 ![upStatus2]({{ '/styles/images/log_file/vpn/ipsec/ipsec_up_status2.png' | prepend: site.baseurl  }})
 
+CentOS7与OPENWRT终端对接测试                                                    {#Strongswan}
+====================================
++ 测试环境描述
+1. IPSEC服务器系统CentOS7，libreswan软件
+2. VPN服务器198双网卡：wan--em1(192.168.22.198), lan--p1p1(192.168.110.60)
+3. 业务服务器 192.168.110.70，gw 192.168.110.60
+4. 路由终端CPE：strongswan软件，wan--10.56.88.66, lan--192.168.150.1
+5. 测试PC1：192.168.150.186, gw 192.168.150.1
++ 测试实验网络拓扑
+
+![topo1]({{ '/styles/images/log_file/vpn/ipsec/topo1.png' | prepend: site.baseurl  }})
+
++ Server端配置
+
+![bcServerconf]({{ '/styles/images/log_file/vpn/ipsec/ipsec_only_centos7_bcCPE_ikev2.png' | prepend: site.baseurl  }})
+
++ 路由终端配置
+
+![bcCPEconf]({{ '/styles/images/log_file/vpn/ipsec/ipsec_only_bcCPE_ikev2_conf.png' | prepend: site.baseurl  }})
+
++ 测试结果
+
+![bcCPEstate]({{ '/styles/images/log_file/vpn/ipsec/ipsec_only_bcCPE_ikev2_state.png' | prepend: site.baseurl  }})
+
+
 参考链接                                                    {#Ref}
 ====================================
 CentOS 6.3下基于Openswan IPSec VPN的实现[https://blog.csdn.net/bytxl/article/details/50457568](https://blog.csdn.net/bytxl/article/details/50457568)

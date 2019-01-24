@@ -179,7 +179,7 @@ L2TP数据连接报文
 
 ![ipsecWin7Data]({{ '/styles/images/log_file/vpn/l2tp/ipsec_win7_data.png' | prepend: site.baseurl  }})
 
-+ openwrt路由终端CPE测试情况
++ openwrt路由终端CPE测试情况(在L2TP配置上启用ipsec加密即可自动创建ipsec策略，无须单独创建ipsec策略)
 
 ![ipsecCPEconf]({{ '/styles/images/log_file/vpn/l2tp/ipsec_cpe_conf.png' | prepend: site.baseurl  }})
 
@@ -193,6 +193,7 @@ L2TP数据连接报文
 3. 观察到CPE建立过程还存在小问题L2TP建立过程没有在ipsec建立之后，尽管最终数据报文是加密的
 4. 因此后续需要修改优化路由终端上的VPN流程
 5. ipsec服务器尽量不设置ike v1/v2和其他加密/完整算法等协商参数，由VPN客户端带上比较好
+6. 关于wireshark报文解码呈现可参考先前博文《IPSec ESP wireshark解包》
 
 通过网关VPN服务器连外网                                                    {#Gate}
 ====================================
