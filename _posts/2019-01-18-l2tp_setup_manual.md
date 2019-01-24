@@ -179,6 +179,21 @@ L2TP数据连接报文
 
 ![ipsecWin7Data]({{ '/styles/images/log_file/vpn/l2tp/ipsec_win7_data.png' | prepend: site.baseurl  }})
 
++ openwrt路由终端CPE测试情况
+
+![ipsecCPEconf]({{ '/styles/images/log_file/vpn/l2tp/ipsec_cpe_conf.png' | prepend: site.baseurl  }})
+
+![ipsecCPEstate]({{ '/styles/images/log_file/vpn/l2tp/ipsec_cpe_state.png' | prepend: site.baseurl  }})
+
+![ipsecCPE]({{ '/styles/images/log_file/vpn/l2tp/ipsec_cpe.png' | prepend: site.baseurl  }})
+
++ L2TP over IPSec测试总结
+1. win7默认使用ike v1方式建立ipsec
+2. 通过变换CPE的触发方式建立 ike v1或者 ike v2的ipsec
+3. 观察到CPE建立过程还存在小问题L2TP建立过程没有在ipsec建立之后，尽管最终数据报文是加密的
+4. 因此后续需要修改优化路由终端上的VPN流程
+5. ipsec服务器尽量不设置ike v1/v2和其他加密/完整算法等协商参数，由VPN客户端带上比较好
+
 通过网关VPN服务器连外网                                                    {#Gate}
 ====================================
 如果需要通过VPN服务器连接外网，则需要在VPN服务器WAN口上做NAT转发；
