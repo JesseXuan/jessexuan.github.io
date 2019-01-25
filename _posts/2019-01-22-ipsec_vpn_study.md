@@ -12,47 +12,41 @@ tag: VPN
 
 前言
 ====================================
-因为ipsec包已经被加密，所以没有相应密匙信息，wireshark是无法解密的。
-介于目前小站大部分情况需要先通过建立ipsec VPN后，再与核心网通信，为
-此写下解包步骤记录方便后续的测试。
+通过先前的几种VPN实验可知，他们都是明文传输，存在安全风险。IPSec（IP Security）是IETF制定的为保证在Internet上传送数据的安全保密性的三层隧道加密协议。
 
 IPSec原理概述                                                    {#IPsec}
 ====================================
-GRE（Generic Routing Encapsulation，通用路由封装）协议是对某些网络层协议（如IP 和IPX）
-的数据报文进行封装，使这些被封装的数据报文能够在另一个网络层协议（如IP）中传输。
-+ GRE Tunnel是一个虚拟的点对点的连接，在实际中可以看成仅支持点对点连接的虚拟接口
-+ GRE封装过程
+IPSec不是指具体的一种协议，而是一套协议族。
 
-![encap]({{ '/styles/images/log_file/vpn/ipsec/gre_encap.jpg' | prepend: site.baseurl  }})
++ IPSec提供的安全服务：
+1. 数据机密性
+2. 数据完整性
+3. 数据来源认证
+4. 防重放
++ IPSec的工作方式(工作方式不同，数据包封装的方式不一样)
+1. 传输模式transport
+2. 隧道模式tunnel
++ IPSec通信保护协议
+1. AH 鉴别头部，协议号51，不能对用户数据加密，不支持NAT-T穿越
+2. ESP 封装安全载荷，协议号50
++ 安全联盟SA
+1. IPsec对数据流提供安全服务是通过安全联盟SA来实现的，SA包括了协议，算法，密钥等协商参数，关系到IP报文的处理
 
-经GRE模块处理后，原IP头部已经被封装在新IP头部和GRE头部之后;
-新IP头部的长度为20字节,新IP数据包的IP头部的协议号为47;
-GRE头部的长度为4～20字节（根据实际配置而定）;
-+ GRE报文格式
-
-![grepacket]({{ '/styles/images/log_file/vpn/ipsec/gre_packet.jpg' | prepend: site.baseurl  }})
-
-GRE头部结构参照RFC1701定义;
-前4字节是必须出现的,第5～20字节将根据第1字节的相关bit位信息，可选出现;
-13~15bit 版本：需为0;
-16~31bit 协议类型：常用的协议，例如IP协议为0800
-
-
-IPSEC                                                    {#Ipsec}
+IPSEC与IKE                                                    {#IKE}
 ====================================
-+ 打开wireshark，选中ESP包
+用IPsec保护一个IP包之前，必须先建立安全联盟（SA）。IPsec的安全联盟可以手工建立，但网络中节点较多时就出现问题了。
 
-网络拓扑
+IKE因特网密钥交换协议是IPSec的信令协议，为IPSec提供了自动协商交换密钥，建立安全联盟的服务，简化IPSec的管理配置。
 
-![ipsec]({{ '/styles/images/log_file/vpn/ipsec/ipsec.jpg' | prepend: site.baseurl  }})
++ IKE的工作流程(共分为两个阶段)
+1. 阶段一：先建立IKE SA，为阶段二提供保护和快速协商
+2. 阶段二：在IKE SA的保护模式下继续为最终用户数据完成IPSec SA协商
 
-IPSec与NAT                                                    {#Nat}
-------------------------------------
-
-由于GRE没有所谓传输层的端口，所以在网络链路上存在多个GRE连接就会出现不能进行NAPT转换。
-因此某种程度上来说，GRE与NAT无法共存。若用户一定要使用GRE VPN，且中间链路存在NAT时，
-一般通过VPN嵌套的方式来实现，譬如在GRE的隧道之上嵌套一层IPsec VPN隧道，通过IPsec可以
-穿越NAT的特性来达到用户需求。
++ IPSec与IKE的关系
+1. IKE是UDP应用层协议，是IPSec的信令协议
+2. IKE为IPSec协商建立安全联盟，并把建立的参数和生成的密钥交给IPSec
+3. IPSec使用IKE建立好的SA对IP报文进行加密封装和验证处理
+4. IPSec处理是基于IP层部分
 
 参考链接                                                    {#Ref}
 ====================================
