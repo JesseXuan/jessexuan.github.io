@@ -56,6 +56,9 @@ server198# ip l2tp add tunnel tunnel_id 501 peer_tunnel_id 101 local 192.168.22.
 # ip l2tp add session tunnel_id 3000 session_id 1000 \
               peer_session_id 2000
 #
+#无法创建会话时，提示RTNETLINK answers: Protocol not supported
+#则需要提前加载l2tp_eth模块
+# modprobe l2tp_eth
 #
 server196# ip l2tp add session tunnel_id 101 session_id 1001 peer_session_id 5001
 #
@@ -66,6 +69,12 @@ server198# ip l2tp add session tunnel_id 501 session_id 5001 peer_session_id 100
 + 启用虚拟接口
 ```bash
 # ip link set l2tpeth0 up mtu 1488
+```
++ 开启数据转发功能
+```bash
+#在/etc/sysctl.conf内加入net.ipv4.ip_forward=1
+#
+# sysctl -p
 ```
 + layer3模式(IP over tunnel)并添加静态业务路由
 ```bash
@@ -123,7 +132,7 @@ L2TPv3选项                                                    {#Opt}
 ```bash
 # modprobe nf_degrag_ipv4
 ```
-+ 由于linux l2tpv3没有用到hello报文检测链路状态，所以与其它l2tpv3软件对接的时候，这些软件需要关闭hello
++ 由于linux l2tpv3没有用到hello报文检测vpn状态，所以与其它l2tpv3软件对接的时候，这些软件需要关闭hello报文
 + 与不同l2tpv3软件对接的时候注意会话的 Layer2SpecificHeader type要一致
 
 参考链接                                                    {#Ref}
