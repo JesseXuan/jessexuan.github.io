@@ -85,6 +85,7 @@ PPTP搭建步骤                                                    {#Steps}
 #添加pptpd日志记录路径
 # vim /etc/ppp/options.pptpd
 ```
+
 1. 去掉注释并且修改相应的DNS IP，建议WAN口的DNS
 
 ![oppptp]({{ '/styles/images/log_file/vpn/pptp/step8_1.png' | prepend: site.baseurl  }})
