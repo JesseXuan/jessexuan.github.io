@@ -3,7 +3,7 @@ layout: post
 title:  "关于此博客!"
 date:   2019-01-07 11:31:01 +0800
 categories: 听雨随记
-tag: boring
+tag: Boring
 ---
 
 * content
