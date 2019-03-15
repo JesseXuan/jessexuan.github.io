@@ -22,7 +22,7 @@ service配置文件分三部分：
 1. Description=服务描述 （给出该服务的简单描述）
 2. Documentation=路径或URL （给出该服务的文档位置）
 3. After=服务.target或者服务.service （定义该服务在其它什么服务开启之后才启动）
-4. Requires=服务.servie （强依赖关系，必须某服务启动，该服务才能正常启动）
+4. Requires=服务.service （强依赖关系，必须某服务启动，该服务才能正常启动）
 
 + [Service]部分：设置该服务进程行为
 
