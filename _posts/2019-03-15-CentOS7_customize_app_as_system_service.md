@@ -25,17 +25,20 @@ service配置文件分三部分：
 4. Requires=服务.servie （强依赖关系，必须某服务启动，该服务才能正常启动）
 
 + [Service]部分：设置该服务进程行为
+
 1. Type=simple/forking等 （默认是simple，及ExecStart字段启动的进程为主进程；而forking时表示ExecStart字段将以fork（）方式启动）
 2. ExecStart=命令 （定义启动进程时执行的命令）
 3. ExecReload=命令 （定义重启服务时执行的命令）
 4. ExecStop=命令 （定义停止服务时执行的命令）
 
 + [Install]部分：设置怎样做到开机启动
+
 1. WantedBy=multi-user.target/graphical.target (该设置非常重要，该字段表示服务所在Target服务组)
 
 添加自定义脚本service                              {#Customize}
 ------------------------
 1. 编写好自己的脚本，最好把脚本放在/usr/bin目录下，如/usr/bin/test.sh
+
 2. 编写自定义脚本服务的配置文件test.service
 ```bash
 # vim test.service
@@ -52,6 +55,7 @@ ExecStop=/bin/bash /usr/bin/test.sh stop
 [Install]
 WantedBy=multi-user.target
 ```
+
 3. 拷贝test.service文件到/usr/lib/systemd/system目录下
 ```bash
 # cp test.service /usr/lib/systemd/system/test.service
@@ -59,7 +63,7 @@ WantedBy=multi-user.target
 # systemctl start test.service     #启动test.service
 #
 # systemctl enable test.service    #设置开机启动test.service，disable关闭开机启动
-#t
+#
 # systemctl stop test.service      #停止test.service
 ```
 
