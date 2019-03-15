@@ -40,12 +40,13 @@ service配置文件分三部分：
 1. 编写好自己的脚本，最好把脚本放在/usr/bin目录下，如/usr/bin/test.sh
 
 2. 编写自定义脚本服务的配置文件test.service
+
 ```bash
 # vim test.service
 #
 [Unit]
 Description="这是一个test demo服务"
-After=network.target remote-fs.target nss-lookup.target
+After=network.target nss-lookup.target
 
 [Service]
 Type=simple
@@ -57,6 +58,7 @@ WantedBy=multi-user.target
 ```
 
 3. 拷贝test.service文件到/usr/lib/systemd/system目录下
+
 ```bash
 # cp test.service /usr/lib/systemd/system/test.service
 #
