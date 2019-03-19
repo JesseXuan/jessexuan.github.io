@@ -119,7 +119,7 @@ sleep 30
 iw dev >>/dev/null 2>&1
 iw wlp12s0 link >>/dev/null 2>&1
 ip link set wlp12s0 up >>/dev/null 2>&1
-wpa_supplicant -B -i wlp12s0 -c <(wpa_passphrase TP-LINK_8B7BA0 lxy1882465chw@1008)
+wpa_supplicant -B -i wlp12s0 -c <(wpa_passphrase TP-LINK_xxx jesse@xuan)
 dhclient wlp12s0 >>/dev/null 2>&1
 
 #设置更新系统时间
