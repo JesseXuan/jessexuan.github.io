@@ -15,7 +15,7 @@ tcpdump&nc				{#Tcpdump}
 1. CentOS7下使用GUI的Wireshark老是core dumped异常关闭
 2. 单纯在CentOS7下tcpdump抓包显现不够直观
 3. nc命令可以监听或者转发数据
-4. ADVsock2pipe监听接收转发的报文
+4. 在Windows上开启ADVsock2pipe监听接收转发的报文
 
 ```bash
 # 在Linux上抓包并转发报文到指定的计算机上
