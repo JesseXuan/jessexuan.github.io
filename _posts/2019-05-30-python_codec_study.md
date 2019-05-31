@@ -117,6 +117,7 @@ Python乱码问题                          {#Error}
 Python程序的执行                              {#Prog}
 ------------------------
 test.py
+
 ```bash
 #!/usr/bin/env python2
 #_*_ coding:utf-8 _*_
@@ -157,6 +158,7 @@ y = u'溪‘
 其它                              {#Other}
 ------------------------
 1. 获取/修改系统默认编码
+
 ```bash
 import sys
 sys.getdefaultencoding()   #获取默认编码
@@ -166,6 +168,7 @@ sys.setdefaultencoding('utf8')  #设置默认编码
 ```
 
 2. 如unicode形式的字符串(实则是str类型的字节串)进行转换
+
 ```bash
 string1 = 'id\pythonu003d215903184\u0026index\u003d0\u0026st\u003d52\u0026sid'
 转成成真正的unicode类型字符串
@@ -173,6 +176,7 @@ string1.decode('unicode-escape')
 ```
 
 3. 中文字符串处理
+
 ```bash
 #coding:utf-8
 
