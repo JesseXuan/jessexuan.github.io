@@ -190,6 +190,16 @@ str2[-2:] == u'萱萱'
 #返回True
 ```
 
+4. 查看文件编码
+
+```bash
+import chardet
+
+with open(filename, 'r') as f:
+    data = f.read()
+    return chardet.detect(data)
+```
+
 参考                              {#Ref}
 ------------------------
 Python字符编码[https://www.cnblogs.com/zihe/p/6993891.html](https://www.cnblogs.com/zihe/p/6993891.html)
