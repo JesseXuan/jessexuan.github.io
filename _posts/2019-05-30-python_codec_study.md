@@ -98,16 +98,13 @@ Python乱码问题                          {#Error}
 ------------------------
 所有出现乱码的原因都可以归结为字符经过不同编码解码在编码的过程中使用的编码格式不一致造成：
 1. python解释器的默认编码
-   
    + python2.7默认编码是ASCII
    + python3默认编码是utf8
 
 2. python源文件编码格式
-
    + 需要自行在文件开头两行声明指定编码格式
 
 3. 终端terminal使用的编码
-
    + pycharm默认utf8
    + win7_CN cmd默认GBK
    + linux terminal默认utf8
@@ -124,7 +121,7 @@ test.py
 
 print "------"
 x = 'jesse'
-y = u'溪‘
+y = u'溪'
 
 ```
 
