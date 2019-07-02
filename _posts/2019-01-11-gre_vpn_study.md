@@ -143,6 +143,12 @@ PC1可以动态获取到PC2相同网段IP，可以正常互相通信。
 
 ![grel2payload]({{ '/styles/images/log_file/vpn/gre_l2_payload.png' | prepend: site.baseurl  }})
 
+注意：两端报文格式flags标志需要保持一致，否则会导致互不认包Layer2不通的情况，如下key标志导致的：
+
+![grel2source]({{ '/styles/images/log_file/vpn/gre_l2_right.png' | prepend: site.baseurl  }})
+
+![grel2dest]({{ '/styles/images/log_file/vpn/gre_l2_error.png' | prepend: site.baseurl  }})
+
 GRE Tunnel MTU问题                                                    {#MTU}
 ------------------------------------
 
